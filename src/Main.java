@@ -23,8 +23,8 @@ public class Main {
         chooseBossDefence();
         bossHits();
         heroesHit();
-        medic();
         printStatistics();
+        medic();
 
     }
 
@@ -116,17 +116,18 @@ public class Main {
     public static void medic() {
         for (int i = 0; i < heroesHealth.length; i++) {
             if (heroesHealth[i] > 0 && heroesHealth[i] < 100) {
-                if (heroesHealth[3] > 0 && heroesHealth[3] < 100) {
+                if (heroesHealth[3] > 0) {
                     heroesHealth[3] = heroesHealth[3] - bossDamage;
-                } else { int drugs = 85;
-                    heroesHealth[i]=heroesHealth[i]+drugs; 
-                    
+                } else {
+                    int drugs = 85;
+                    heroesHealth[i] = heroesHealth[i] + drugs;
+                    break;
 
                 }
 
-            } else if(heroesHealth[3]<0) {
-                heroesHealth[3]=0;
-                heroesHealth[i]-=bossDamage;
+            } else if (heroesHealth[3] < 0) {
+                heroesHealth[3] = 0;
+                heroesHealth[i] -= bossDamage;
             }
         }
     }
